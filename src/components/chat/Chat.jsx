@@ -6,11 +6,12 @@ const Chat = () => {
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
 
-  const handleEmoji= (e)=> {
-    console.log(e)
+  const handleEmoji= e => {
+    setText((prev)=> prev + e.emoji)
+    setOpen(false)
   };
 
-  console.log(text);
+  
 
   return (
     <div className='chat'>
@@ -28,7 +29,9 @@ const Chat = () => {
             <img src="./info.png" alt="" />
           </div>
       </div>
-      <div className="center"></div>
+      <div className="center">
+        
+      </div>
 
       <div className="bottom">
         <div className="icons">
@@ -36,10 +39,12 @@ const Chat = () => {
           <img src="./camera.png" alt="" />
           <img src="./mic.png" alt="" />
         </div>
-        <input type='text' placeholder='Type a message....' onChange={(e)=> setText(e.target.value)}></input>
+        <input type='text' value={text} placeholder='Type a message....' onChange={(e)=> setText(e.target.value)}></input>
         <div className="emoji">
-          <img src="./emoji.png" onClick={(prev)=> setOpen(!prev)} alt="" />
-          <EmojiPicker open={open} onEmojiClick={handleEmoji}/>
+          <img src="./emoji.png" onClick={() => setOpen((prev) => !prev)} alt="" />
+          <div className="picker">
+            <EmojiPicker open={open} onEmojiClick={handleEmoji}/>
+          </div>
         </div>
         <button className='sendButton'>Send</button>
       </div>

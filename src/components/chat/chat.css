@@ -4,6 +4,8 @@
     border-left: solid 1px #dddddd35;
     border-right: solid 1px #dddddd35;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 
     .top{
         /* height: 90px; */
@@ -53,6 +55,11 @@
         }
     }
 
+    .center{
+        padding: 20px;
+        flex: 1;
+    }
+
     .bottom{
         display: flex;
         border-top: solid 1px #dddddd35;
@@ -60,6 +67,7 @@
         align-items: center;
         justify-content: space-between;
         gap: 20px;
+        margin-top: auto;
 
         .icons{
             display: flex;
@@ -82,6 +90,14 @@
             outline: none;
         }
         
+        .emoji{
+            position: relative;
+            .picker{
+                position: absolute;
+                bottom: 50px;
+                /* left: 0; */
+            }
+        }
         .sendButton{
             color: #fff;
             border: none;
